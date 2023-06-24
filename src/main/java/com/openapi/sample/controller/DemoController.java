@@ -27,7 +27,7 @@ public class DemoController {
     private final DemoService demoService;
 
     @GetMapping("/ready")
-    public String getReadyPage(Model model) {
+    public String getReadyPage() {
         return "ready";
     }
 

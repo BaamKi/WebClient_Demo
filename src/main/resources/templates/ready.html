@@ -3,26 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <title>Ready Request</title>
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}" />
+    <style>
+        .left-column .form-group label,
+        .right-column .form-group label {
+            font-size: 12px;
+        }
+
+        .left-column .form-group .form-control,
+        .right-column .form-group .form-control {
+            padding: 0.375rem 0.75rem;
+            font-size: 12px;
+        }
+
+        .left-column {
+            float: left;
+            width: 50%;
+        }
+        .right-column {
+            padding-left: 1%;
+            float: right;
+            width: 50%;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
 </head>
 <body>
-<form method="post" action="/readysubmit">
-    <label>Transaction Type: <input type="text" th:name="payment.transactionType" th:value="${requestDto?.payment?.transactionType ?: 'PAYMENT'}" /></label><br>
-    <label>Order ID: <input type="text" th:name="payment.orderId" th:value="${requestDto?.payment?.orderId ?: 'OPENAPI_TEST'}" /></label><br>
-    <label>Currency: <input type="text" th:name="payment.currency" th:value="${requestDto?.payment?.currency ?: 'USD'}" /></label><br>
-    <label>Amount: <input type="text" th:name="payment.amount" th:value="${requestDto?.payment?.amount ?: '1'}" /></label><br>
-    <label>Language: <input type="text" th:name="payment.lang" th:value="${requestDto?.payment?.lang ?: 'KR'}" /></label><br>
+<div class="container">
+    <h1>Ready Request</h1>
+    <form method="post" action="/readysubmit">
+        <div class="left-column">
+        <div class="form-group">
+            <label for="transactionType">Transaction Type:</label>
+            <input type="text" class="form-control" id="transactionType" th:name="payment.transactionType" th:value="${requestDto?.payment?.transactionType ?: 'PAYMENT'}" />
+        </div>
+        <div class="form-group">
+            <label for="orderId">Order ID:</label>
+            <input type="text" class="form-control" id="orderId" th:name="payment.orderId" th:value="${requestDto?.payment?.orderId ?: 'OPENAPI_TEST'}" />
+        </div>
+        <div class="form-group">
+            <label for="currency">Currency:</label>
+            <input type="text" class="form-control" id="currency" th:name="payment.currency" th:value="${requestDto?.payment?.currency ?: 'USD'}" />
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="text" class="form-control" id="amount" th:name="payment.amount" th:value="${requestDto?.payment?.amount ?: '1'}" />
+        </div>
+        <div class="form-group">
+            <label for="lang">Language:</label>
+            <input type="text" class="form-control" id="lang" th:name="payment.lang" th:value="${requestDto?.payment?.lang ?: 'KR'}" />
+        </div>
 
-    <label>MID: <input type="text" th:name="merchant.mid" th:value="${requestDto?.merchant?.mid ?: 'C2FA1F5848'}" /></label><br>
+        <div class="form-group">
+            <label for="mid">MID:</label>
+            <input type="text" class="form-control" id="mid" th:name="merchant.mid" th:value="${requestDto?.merchant?.mid ?: 'C2FA1F5848'}" />
+        </div>
 
-    <label>Return URL: <input type="text" th:name="url.returnUrl" th:value="${requestDto?.url?.returnUrl ?: 'https://secureapi.test.eximbay.com/kobe/returnurl.html'}" /></label><br>
-    <label>Status URL: <input type="text" th:name="url.statusUrl" th:value="${requestDto?.url?.statusUrl ?: 'https://secureapi.test.eximbay.com/kobe/statusurl.jsp'}" /></label><br>
+        <div class="form-group">
+            <label for="returnUrl">Return URL:</label>
+            <input type="text" class="form-control" id="returnUrl" th:name="url.returnUrl" th:value="${requestDto?.url?.returnUrl ?: 'https://secureapi.test.eximbay.com/kobe/returnurl.html'}" />
+        </div>
+        <div class="form-group">
+            <label for="statusUrl">Status URL:</label>
+            <input type="text" class="form-control" id="statusUrl" th:name="url.statusUrl" th:value="${requestDto?.url?.statusUrl ?: 'https://secureapi.test.eximbay.com/kobe/statusurl.jsp'}" />
+        </div>
 
-    <label>Name: <input type="text" th:name="buyer.name" th:value="${requestDto?.buyer?.name ?: 'OpenAPI_TEST'}" /></label><br>
-    <label>Email: <input type="text" th:name="buyer.email" th:value="${requestDto?.buyer?.email ?: 'sample@eximbay.com'}" /></label><br>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:name="buyer.name" th:value="${requestDto?.buyer?.name ?: 'OpenAPI_TEST'}" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" th:name="buyer.email" th:value="${requestDto?.buyer?.email ?: 'sample@eximbay.com'}" />
+        </div>
 
-    <label>Display Type: <input type="text" th:name="settings.displayType" th:value="${requestDto?.settings?.displayType}" /></label><br>
+        <div class="form-group">
+            <label for="displayType">Display Type:</label>
+            <input type="text" class="form-control" id="displayType" th:name="settings.displayType" th:value="${requestDto?.settings?.displayType}" />
+        </div>
 
-    <button type="submit">Submit</button>
-</form>
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method:</label>
+            <input type="text" class="form-control" id="paymentMethod" th:name="payment.paymentMethod" th:value="${requestDto?.payment?.paymentMethod ?: 'P000'}" />
+        </div>
+        <div class="form-group">
+            <label for="multiPaymentMethod">Multi Payment Method:</label>
+            <input type="text" class="form-control" id="multiPaymentMethod" th:name="payment.multiPaymentMethod" th:value="${requestDto?.payment?.multiPaymentMethod ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="shop">Shop:</label>
+            <input type="text" class="form-control" id="shop" th:name="merchant.shop" th:value="${requestDto?.merchant?.shop ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="partnerCode">Partner Code:</label>
+            <input type="text" class="form-control" id="partnerCode" th:name="merchant.partnerCode" th:value="${requestDto?.merchant?.partnerCode ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" class="form-control" id="phoneNumber" th:name="buyer.phoneNumber" th:value="${requestDto?.buyer?.phoneNumber ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="param1">Param 1:</label>
+            <input type="text" class="form-control" id="param1" th:name="otherParam.param1" th:value="${requestDto?.otherParam?.param1 ?: 'INTERNAL_TEST'}" />
+        </div>
+        <div class="form-group">
+            <label for="param2">Param 2:</label>
+            <input type="text" class="form-control" id="param2" th:name="otherParam.param2" th:value="${requestDto?.otherParam?.param2 ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="param3">Param 3:</label>
+            <input type="text" class="form-control" id="param3" th:name="otherParam.param3" th:value="${requestDto?.otherParam?.param3 ?: ''}" />
+        </div>
+        </div>
+        <div class="right-column">
+        <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" class="form-control" id="productName" th:name="product[0].name" th:value="${requestDto?.product?.get(0)?.name ?: 'test_product'}" />
+        </div>
+        <div class="form-group">
+            <label for="productQuantity">Product Quantity:</label>
+            <input type="text" class="form-control" id="productQuantity" th:name="product[0].quantity" th:value="${requestDto?.product?.get(0)?.quantity ?: '1'}" />
+        </div>
+        <div class="form-group">
+            <label for="productUnitPrice">Product Unit Price:</label>
+            <input type="text" class="form-control" id="productUnitPrice" th:name="product[0].unitPrice" th:value="${requestDto?.product?.get(0)?.unitPrice ?: '500'}" />
+        </div>
+        <div class="form-group">
+            <label for="productLink">Product Link:</label>
+            <input type="text" class="form-control" id="productLink" th:name="product[0].link" th:value="${requestDto?.product?.get(0)?.link ?: 'www.kopenmarket.com'}" />
+        </div>
+        <div class="form-group">
+            <label for="autoclose">Autoclose:</label>
+            <input type="text" class="form-control" id="autoclose" th:name="settings.autoclose" th:value="${requestDto?.settings?.autoclose ?: 'Y'}" />
+        </div>
+        <div class="form-group">
+            <label for="ostype">OSType:</label>
+            <input type="text" class="form-control" id="ostype" th:name="settings.ostype" th:value="${requestDto?.settings?.ostype ?: 'M'}" />
+        </div>
+        <div class="form-group">
+            <label for="siteForeignCurrency">Site Foreign Currency:</label>
+            <input type="text" class="form-control" id="siteForeignCurrency" th:name="settings.siteForeignCurrency" th:value="${requestDto?.settings?.siteForeignCurrency ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="callFromApp">Call From App:</label>
+            <input type="text" class="form-control" id="callFromApp" th:name="settings.callFromApp" th:value="${requestDto?.settings?.callFromApp ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="callFromScheme">Call From Scheme:</label>
+            <input type="text" class="form-control" id="callFromScheme" th:name="settings.callFromScheme" th:value="${requestDto?.settings?.callFromScheme ?: ''}" />
+        </div>
+        <div class="form-group">
+            <label for="issuerCountry">Issuer Country:</label>
+            <input type="text" class="form-control" id="issuerCountry" th:name="settings.issuerCountry" th:value="${requestDto?.settings?.issuerCountry ?: ''}" />
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 </body>
 </html>
