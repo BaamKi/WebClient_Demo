@@ -1,0 +1,18 @@
+// 결제 승인 API ENDPOINT
+POST https://api-test.eximbay.com/v1/payments/confirm
+//header 영역
+Content-Type: application/json
+Authorization: Basic dGVzdF8xODQ5NzA1QzY0MkMyMTdFMEIyRDo=
+
+//body 영역
+{
+  "transaction_type" : "PAYMENT_PA",
+  "mid" : "2B0AF30BE0",
+  "payment" : {
+    "order_id" : "samuel_test_0418_4",
+    "currency" : "KRW",
+    "amount" : "500",
+    "payer_auth_id" : "202304181006309963286FC0",
+    "lang" : "EN"
+  }
+}

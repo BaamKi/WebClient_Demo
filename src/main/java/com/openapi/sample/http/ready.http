@@ -1,0 +1,46 @@
+// 결제 준비 API ENDPOINT
+POST https://api-test.eximbay.com/v1/payments/ready
+//header 영역
+Content-Type: application/json
+Authorization: Basic dGVzdF9DMkZBMUY1ODQ4OUMxNTg0MTk5Qjo=
+
+//body 영역
+{
+  "payment": {
+    "transaction_type": "PAYMENT",
+    "order_id": "KOBE_TEST",
+    "currency": "USD",
+    "amount": "1",
+    "lang": "EN"
+  },
+  "merchant": {
+    "mid": "1849705C64"
+  },
+  "url": {
+    "return_url": "https://secureapi.test.eximbay.com/paytest/demo/returnurl.jsp",
+    "status_url": "https://secureapi.test.eximbay.com/paytest/demo/status.jsp"
+  },
+  "buyer": {
+    "name": "kobe",
+    "email": "kobe123@eximbay.com"
+  },
+  "tax": {},
+  "other_param": {
+    "param1": "param1",
+    "param2": "param2"
+  },
+  "product": [
+    {
+      "name": "test_product",
+      "quantity": "1",
+      "unit_price": "500",
+      "link": "www.kopenmarket.com"
+    }
+  ],
+  "surcharge": [
+    {}
+  ],
+  "settings": {
+    "display_type": "P"
+  }
+}

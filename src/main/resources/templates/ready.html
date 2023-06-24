@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ready Request</title>
+</head>
+<body>
+<form method="post" action="/readysubmit">
+    <label>Transaction Type: <input type="text" th:name="payment.transactionType" th:value="${requestDto?.payment?.transactionType ?: 'PAYMENT'}" /></label><br>
+    <label>Order ID: <input type="text" th:name="payment.orderId" th:value="${requestDto?.payment?.orderId ?: 'OPENAPI_TEST'}" /></label><br>
+    <label>Currency: <input type="text" th:name="payment.currency" th:value="${requestDto?.payment?.currency ?: 'USD'}" /></label><br>
+    <label>Amount: <input type="text" th:name="payment.amount" th:value="${requestDto?.payment?.amount ?: '1'}" /></label><br>
+    <label>Language: <input type="text" th:name="payment.lang" th:value="${requestDto?.payment?.lang ?: 'KR'}" /></label><br>
+
+    <label>MID: <input type="text" th:name="merchant.mid" th:value="${requestDto?.merchant?.mid ?: 'C2FA1F5848'}" /></label><br>
+
+    <label>Return URL: <input type="text" th:name="url.returnUrl" th:value="${requestDto?.url?.returnUrl ?: 'https://secureapi.test.eximbay.com/kobe/returnurl.html'}" /></label><br>
+    <label>Status URL: <input type="text" th:name="url.statusUrl" th:value="${requestDto?.url?.statusUrl ?: 'https://secureapi.test.eximbay.com/kobe/statusurl.jsp'}" /></label><br>
+
+    <label>Name: <input type="text" th:name="buyer.name" th:value="${requestDto?.buyer?.name ?: 'OpenAPI_TEST'}" /></label><br>
+    <label>Email: <input type="text" th:name="buyer.email" th:value="${requestDto?.buyer?.email ?: 'sample@eximbay.com'}" /></label><br>
+
+    <label>Display Type: <input type="text" th:name="settings.displayType" th:value="${requestDto?.settings?.displayType}" /></label><br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
