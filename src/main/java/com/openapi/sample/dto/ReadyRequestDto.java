@@ -1,17 +1,16 @@
 package com.openapi.sample.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class ReadyRequestDto {
+
 
     private Payment payment;
     private Merchant merchant;
@@ -51,6 +50,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Payment {
         private String lang;
         @JsonProperty("transaction_type")
@@ -78,6 +78,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Merchant {
         private String mid;
         private String shop;
@@ -94,6 +95,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Url {
         @JsonProperty("return_url")
         private String returnUrl;
@@ -110,6 +112,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Buyer {
         private String email;
         private String name;
@@ -126,6 +129,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class OtherParam {
         private String param1;
         private String param2;
@@ -142,6 +146,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Product {
         private String name;
         private String quantity;
@@ -160,6 +165,7 @@ public class ReadyRequestDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    @ToString
     public static class Settings {
         private String autoclose;
         private String ostype;
